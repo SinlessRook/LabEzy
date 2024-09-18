@@ -13,6 +13,7 @@ export default {
         'baby_blue': '#F0FFFF',
         'color_1':'#8BC6EC',
         'color_2':'#9599E2',
+        'color_3':'#050A30',
       },
     },
   },

@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { getData } from '../Functions';
 const Modules = (props) => {
 const clicked = props.clicked;
 const selectedModule = props.selectedModule;
@@ -30,9 +31,11 @@ transition:{duration: 0.4, type: "spring", stiffness: 120}
     <div className='px-20 text-3xl flex flex-col gap-5  list-none'>
     {lst.map((value, index) => (
       <motion.li
-      whileHover={{scale:1.3,originX:0,color:"#F0E68C",fontWeight:"medium"}}
+      whileHover={{scale:1.3,originX:0,color:"#F0E68C"}}
       transition={{type:"spring",stiffness:300}}
-       key={index} className='hover:cursor-pointer ' onClick={()=>{clicked(false);changed(true);selectedModule(index+1)}}>{value}</motion.li>
+       key={index} className='hover:cursor-pointer ' onClick={async()=>{
+        await getData(index+1,subject);
+        clicked(false);changed(true);selectedModule(index+1)}}>{value}</motion.li>
     ))}
     </div>
   

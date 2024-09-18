@@ -1,9 +1,11 @@
 import React from 'react'
-import { dataDS, dataOOP } from '../assets/Constants';
+import { dataDS, dataOOP,getContent} from '../Functions';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { motion } from 'framer-motion';
+import { useNavigate  } from 'react-router-dom';
 
 const Program = (props) => {
+    const navigate = useNavigate();
 
     const clicked = props.clicked;
     const changed = props.changed;
@@ -60,12 +62,13 @@ const Program = (props) => {
             <div className='px-20 text-xl flex flex-col gap-5 list-none md:text-3xl'>
                 {data.map((value, index) => (
                     <motion.li
-                        whileHover={{ scale: 1.3, originX: 0, color: "#F0E68C", fontWeight: "medium" }}
+                        whileHover={{ scale: 1.3, originX: 0, color: "#F0E68C"}}
                         transition={{ type: "spring", stiffness: 300 }}
                         key={index}
                         className='hover:cursor-pointer hover:scale-110'
-                        onClick={() => {
-                            window.location.href = value["url"];
+                        onClick={async() => {
+                            await getContent(Module,subject,value["filename"]);
+                            navigate("/LabEzy/Code/" + value["filename"] + "/" + Module);
                         }}>
                         {value["name"]}
                     </motion.li>

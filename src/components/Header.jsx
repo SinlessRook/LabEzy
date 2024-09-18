@@ -1,6 +1,6 @@
 import React from 'react'
 import { logo, PTO } from '../assets/Images'
-import { delay, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const Header = (props) => {
   const currentSUB = props.currentSUB
