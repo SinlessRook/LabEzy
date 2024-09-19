@@ -15,7 +15,7 @@ const dataOOP = {
    'Module 5': []
 }
 
-const contentArray = [];
+const contentArray = [{algorithm:[],code:'',output:''}];
 const getData = async (module, subject) => {
    try {
       const response = await (await fetch(
@@ -37,12 +37,10 @@ const getData = async (module, subject) => {
 };
 
 const getContent = async (module, subject, name) => {
-
    const response = await (await fetch(`https://api.github.com/repos/SinlessRook/Sem-3-${subject}-Lab/contents/Module%20${module}/${name}?ref=main`)).json();
    const content = await response['content'];
    const decodedContent = atob(content);
    const AllData = await getAlgorithms(decodedContent);
-   console.log(AllData);
    contentArray[0]=AllData;
 
 }

@@ -90,7 +90,7 @@ const Header = (props) => {
               changedSUB('OOP')
             } else {
               changedSUB('DS')
-            }console.log(currentSUB)
+            }
           }}
           >
           <img src={PTO} alt="Switch" />

@@ -67,7 +67,6 @@ const Program = (props) => {
                         key={index}
                         className='hover:cursor-pointer hover:scale-110'
                         onClick={async() => {
-                            await getContent(Module,subject,value["filename"]);
                             navigate("/LabEzy/Code/" + value["filename"] + "/" + Module);
                         }}>
                         {value["name"]}

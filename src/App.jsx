@@ -10,7 +10,7 @@ function App() {
     <>
     <Routes>
         <Route path="/LabEzy/" element={<><Header currentSUB={subject} changedSUB={setSubject}/> <Hero currentSUB={subject}/></>} />
-        <Route path="/LabEzy/Code/:file/:module" element={<><Header currentSUB={subject} changedSUB={setSubject}/> <Code/></>} />
+        <Route path="/LabEzy/Code/:file/:module" element={<><Header currentSUB={subject} changedSUB={setSubject}/> <Code currentSUB={subject}/></>} />
       </Routes>
       
       
