@@ -6,7 +6,6 @@ import { useNavigate  } from 'react-router-dom';
 
 const Program = (props) => {
     const navigate = useNavigate();
-
     const clicked = props.clicked;
     const changed = props.changed;
     const goBack = props.goBack;
@@ -43,7 +42,7 @@ const Program = (props) => {
             animate='visible'
             className='text-baby_blue flex flex-col justify-center  gap-5'>
             <div id='Heading' className='flex flex-row '>
-                <motion.button
+            <motion.button
                 variants={ButtonVariant}
                     initial={{ opacity: 0, y: -100 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -66,7 +65,7 @@ const Program = (props) => {
                         transition={{ type: "spring", stiffness: 300 }}
                         key={index}
                         className='hover:cursor-pointer hover:scale-110'
-                        onClick={async() => {
+                        onClick={() => {
                             navigate("/LabEzy/Code/" + value["filename"] + "/" + Module);
                         }}>
                         {value["name"]}

@@ -13,7 +13,6 @@ const Hero = (props) => {
     const [show_Program, setShow_Program] = useState(false);
     const [show_Code,setshow_Code] = useState(false);
     const[selectedModule, setSelectedModule] = useState(1);
-
     const routeVarients = {
         hidden: {
             opacity: 0
@@ -61,7 +60,7 @@ const Hero = (props) => {
             </AnimatePresence> }
             </main>
         </>
-    )
+    )  
 }
 
 export default Hero

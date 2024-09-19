@@ -10,13 +10,14 @@ const Code = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const subject=props.currentSUB
     const {file,module} =useParams()
-    let AllData;
+    let AllData =contentArray[0];
     useEffect(() => {
-        
-            try{getContent(module,subject,file).then(()=>{
-                setIsLoading(false)
-                AllData= contentArray[0];
-            })}
+            try{
+                getContent(module,subject,file).then(()=>{
+                    setIsLoading(false)
+                    AllData= contentArray[0];
+                }) 
+                }
             catch(e){
                 setIsLoading(true)
                 alert("File Not Found")

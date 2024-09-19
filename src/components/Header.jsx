@@ -1,10 +1,12 @@
 import React from 'react'
 import { logo, PTO } from '../assets/Images'
 import { motion } from 'framer-motion'
+import { Button } from '@mui/material'
 
 const Header = (props) => {
   const currentSUB = props.currentSUB
   const changedSUB = props.changedSUB
+  const main_page = props.main_page
   const ButtonVariant = {
     visible: {
       opacity: 1, transition: { type: "spring", stiffness: 120, delay: 1.5 },
@@ -77,8 +79,7 @@ const Header = (props) => {
             className='text-baby_blue text-4xl py-4 font-bold'>LabEzy</motion.h3>
 
         </div>
-
-        <motion.button
+        {main_page?<motion.button
           variants={ButtonVariant}
           initial='hidden'
           animate='visible'
@@ -94,7 +95,38 @@ const Header = (props) => {
           }}
           >
           <img src={PTO} alt="Switch" />
-        </motion.button>
+        </motion.button>:<div className='flex flex-col gap-1 m-1 '>
+          <motion.div
+          initial={{ y: '100vh' }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, type: "spring", stiffness: 500 }}
+          whileHover={{scale:1.1,}}
+          >
+          <Button variant='outlined' 
+          onClick={() => {
+            location.href = 'https://github.com/SinlessRook/Sem-3-OOP-Lab'
+          }}
+          sx={{borderColor:'white',color:'white',width:'100%'}}>
+          Contribute OOP
+        </Button>
+          </motion.div>
+          <motion.div
+          initial={{ x: '-100vh',y:'10vh' }}
+          animate={{ x: 0,y:0 }}
+          transition={{ duration: 0.5, delay: 0.2, type: "spring", stiffness: 500 }}
+          whileHover={{scale:1.1,}}
+          >
+          <Button 
+          onClick={() => {
+            location.href = 'https://github.com/SinlessRook/Sem-3-DS-Lab'
+          }}
+          variant='outlined' sx={{borderColor:'white',color:'white',width:'100%'}}>
+          Contribute DS
+        </Button>
+          </motion.div>
+        
+        </div>}
+        
 
       </header>
     </>
