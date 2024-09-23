@@ -2,9 +2,11 @@ import React from 'react'
 import { logo, PTO } from '../assets/Images'
 import { motion } from 'framer-motion'
 import { Button } from '@mui/material'
+import { useMediaQuery } from '@mui/material';
 
 const Header = (props) => {
   const currentSUB = props.currentSUB
+  const isSmallScreen = useMediaQuery('(max-width:600px)');
   const changedSUB = props.changedSUB
   const main_page = props.main_page
   const ButtonVariant = {
@@ -104,9 +106,15 @@ const Header = (props) => {
           >
           <Button variant='outlined' 
           onClick={() => {
-            location.href = 'https://github.com/SinlessRook/Sem-3-OOP-Lab'
+            window.location.href = 'https://github.com/SinlessRook/Sem-3-OOP-Lab';
           }}
-          sx={{borderColor:'white',color:'white',width:'100%'}}>
+          sx={{
+            borderColor: 'white',
+            color: 'white',
+            width: isSmallScreen ? '100%' : '100%',
+            padding: isSmallScreen ? '8px 16px' : '10px 20px',
+            fontSize: isSmallScreen ? '0.875rem' : '1rem',
+          }}>
           Contribute OOP
         </Button>
           </motion.div>
@@ -120,11 +128,16 @@ const Header = (props) => {
           onClick={() => {
             location.href = 'https://github.com/SinlessRook/Sem-3-DS-Lab'
           }}
-          variant='outlined' sx={{borderColor:'white',color:'white',width:'100%'}}>
+          variant='outlined' sx={{
+            borderColor: 'white',
+            color: 'white',
+            width: isSmallScreen ? '100%' : '100%',
+            padding: isSmallScreen ? '8px 16px' : '10px 20px',
+            fontSize: isSmallScreen ? '0.875rem' : '1rem',
+          }}>
           Contribute DS
         </Button>
           </motion.div>
-        
         </div>}
         
 
